@@ -3,7 +3,7 @@ import { User } from "../models/user.model.js";
 
 export const addPoints = async (req, res) => {
   try {
-    const { userId } = req.body;
+    const { userId } = req.params;
 
     if (!userId) {
       return res
