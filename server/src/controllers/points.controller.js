@@ -32,3 +32,14 @@ export const addPoints = async (req, res) => {
       .json({ error: error.message, message: "Internal Server Error" });
   }
 };
+
+export const getPointHistory = async (req, res) => {
+  try {
+    const pointHistory = await PointHistory.find().populate("userId", "name");
+    return res.status(200).json({ pointHistory });
+  } catch (error) {
+    return res
+      .status(500)
+      .json({ error: error.message, message: "Internal Server Error" });
+  }
+};
